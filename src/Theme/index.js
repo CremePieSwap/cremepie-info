@@ -3,6 +3,9 @@ import { ThemeProvider as StyledComponentsThemeProvider, createGlobalStyle } fro
 import { useDarkModeManager } from '../contexts/LocalStorage'
 import styled from 'styled-components'
 import { Text } from 'rebass'
+import SFPro400 from '../assets/fonts/SF-Pro-Rounded-Thin.otf'
+import SFPro500 from '../assets/fonts/SF-Pro-Rounded-Medium.otf'
+import SFPro900 from '../assets/fonts/SF-Pro-Rounded-Black.otf'
 
 export default function ThemeProvider({ children }) {
   const [darkMode] = useDarkModeManager()
@@ -156,9 +159,30 @@ export const ThemedBackground = styled.div`
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://rsms.me/inter/inter.css');
-  html { font-family: 'Inter', sans-serif; }
+  @font-face {
+    font-family: SFPro400;
+    font-style: normal;
+    src: url('${SFPro400}');
+  }
+  @font-face {
+    font-family: SFPro500;
+    font-style: normal;
+    src: url('${SFPro500}');
+  }
+  @font-face {
+    font-family: SFPro900;
+    font-style: normal;
+    src: url('${SFPro900}');
+  }
+  
+  html {
+    font-family: SFPro500, san-serif;
+    font-display: fallback; 
+  }
   @supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
+    html {
+      font-family: SFPro500, san-serif;
+    }
   }
   
   html,
