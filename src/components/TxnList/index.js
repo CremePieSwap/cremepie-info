@@ -86,7 +86,8 @@ const DashGrid = styled.div`
 `
 
 const ClickableText = styled(Text)`
-  color: ${({ theme }) => theme.text1};
+  color: #5B5A99BF;
+  font-weight: 600;
   user-select: none;
   text-align: end;
 
@@ -103,7 +104,8 @@ const ClickableText = styled(Text)`
 const DataText = styled(Flex)`
   align-items: center;
   text-align: right;
-  color: ${({ theme }) => theme.text1};
+  color: #5B5A99BF;
+  font-weight: 600;
 
   & > * {
     font-size: 1em;
@@ -120,9 +122,10 @@ const SortText = styled.button`
   margin-right: 0.75rem !important;
   border: none;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 1em;
   padding: 0px;
-  color: ${({ active, theme }) => (active ? theme.text1 : theme.text3)};
+  color: #5B5A99BF;
+  font-weight: 600;
   outline: none;
 
   @media screen and (max-width: 600px) {
@@ -278,7 +281,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
 
   const below1080 = useMedia('(max-width: 1080px)')
   const below780 = useMedia('(max-width: 780px)')
-
+  const below600 = useMedia('(max-width: 600px)')
   const ListItem = ({ item }) => {
     return (
       <DashGrid style={{ height: '48px' }}>
@@ -294,11 +297,11 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
           <>
             <DataText area="amountOther">
               {formattedNum(item.token1Amount) + ' '}{' '}
-              <FormattedName text={item.token1Symbol} maxCharacters={5} margin={true} />
+              <FormattedName text={item.token1Symbol} maxCharacters={below600 ? 8 : 16} margin={true} style={{ color: '#5B5A99', fontWeight: '600' }} />
             </DataText>
             <DataText area="amountToken">
               {formattedNum(item.token0Amount) + ' '}{' '}
-              <FormattedName text={item.token0Symbol} maxCharacters={5} margin={true} />
+              <FormattedName text={item.token0Symbol} maxCharacters={below600 ? 8 : 16} margin={true} style={{ color: '#5B5A99', fontWeight: '600' }} />
             </DataText>
           </>
         )}
@@ -403,7 +406,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
           )}
           {!below1080 && (
             <Flex alignItems="center">
-              <TYPE.body area="account">Account</TYPE.body>
+              <TYPE.body style={{ color: '#5B5A99' }} area="account">Account</TYPE.body>
             </Flex>
           )}
           <Flex alignItems="center">
@@ -425,7 +428,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
         {!filteredList ? (
           <LocalLoader />
         ) : filteredList.length === 0 ? (
-          <EmptyCard>No recent transactions found.</EmptyCard>
+          <EmptyCard style={{ color: '#5B5A99' }}>No recent transactions found.</EmptyCard>
         ) : (
           filteredList.map((item, index) => {
             return (
@@ -445,7 +448,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
         >
           <Arrow faded={page === 1 ? true : false}>←</Arrow>
         </div>
-        <TYPE.body>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
+        <TYPE.body style={{ color: '#5B5A99' }}>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
         <div
           onClick={(e) => {
             setPage(page === maxPage ? page : page + 1)

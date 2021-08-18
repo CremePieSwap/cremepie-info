@@ -140,10 +140,9 @@ function GlobalPage() {
           )}
           <ListOptions gap="10px" style={{ marginTop: '2rem', marginBottom: '.5rem' }}>
             <RowBetween>
-              <TYPE.main fontSize={'1.125rem'} style={{ whiteSpace: 'nowrap' }}>
+              <TYPE.largeHeader style={{ whiteSpace: 'nowrap' }}>
                 Top Tokens
-              </TYPE.main>
-              <CustomLink to={'/tokens'}>See All</CustomLink>
+              </TYPE.largeHeader>
             </RowBetween>
           </ListOptions>
           <Panel style={{ marginTop: '6px', padding: '1.125rem 0 ' }}>
@@ -151,30 +150,21 @@ function GlobalPage() {
           </Panel>
           <ListOptions gap="10px" style={{ marginTop: '2rem', marginBottom: '.5rem' }}>
             <RowBetween>
-              <TYPE.main fontSize={'1rem'} style={{ whiteSpace: 'nowrap' }}>
+              <TYPE.largeHeader style={{ whiteSpace: 'nowrap' }}>
                 Top Pairs
-              </TYPE.main>
-              <AutoRow gap="4px" width="100%" justifyContent="flex-end">
-                <CheckBox
-                  checked={useTracked}
-                  setChecked={() => setUseTracked(!useTracked)}
-                  text={'Hide untracked pairs'}
-                />
-                <QuestionHelper text="USD amounts may be inaccurate in low liquiidty pairs or pairs without ETH or stablecoins." />
-                <CustomLink to={'/pairs'}>See All</CustomLink>
-              </AutoRow>
+              </TYPE.largeHeader>
             </RowBetween>
           </ListOptions>
           <Panel style={{ marginTop: '6px', padding: '1.125rem 0 ' }}>
             <PairList pairs={allPairs} useTracked={useTracked} />
           </Panel>
           <span>
-            <TYPE.main fontSize={'1.125rem'} style={{ marginTop: '2rem' }}>
+            <TYPE.largeHeader style={{ marginTop: '2rem' }}>
               Transactions
-            </TYPE.main>
+            </TYPE.largeHeader>
           </span>
           <Panel style={{ margin: '1rem 0' }}>
-            <TxnList transactions={transactions} />
+            <TxnList transactions={transactions} color='#5B5A99' />
           </Panel>
         </div>
       </ContentWrapper>

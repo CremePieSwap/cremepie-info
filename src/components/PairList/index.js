@@ -81,11 +81,12 @@ const DashGrid = styled.div`
 const ListWrapper = styled.div``
 
 const ClickableText = styled(Text)`
-  color: ${({ theme }) => theme.text1};
   &:hover {
     cursor: pointer;
     opacity: 0.6;
   }
+  color: #5B5A99BF;
+  font-weight: 600;
   text-align: end;
   user-select: none;
 `
@@ -93,8 +94,9 @@ const ClickableText = styled(Text)`
 const DataText = styled(Flex)`
   align-items: center;
   text-align: center;
-  color: ${({ theme }) => theme.text1};
+  color: #5B5A99;
 
+  font-weight: 600;
   & > * {
     font-size: 14px;
   }
@@ -184,7 +186,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
 
       const apy = formattedPercent(
         ((pairData.oneDayVolumeUSD ? pairData.oneDayVolumeUSD : pairData.oneDayVolumeUntracked) * 0.003 * 365 * 100) /
-          (pairData.oneDayVolumeUSD ? pairData.trackedReserveUSD : pairData.reserveUSD)
+        (pairData.oneDayVolumeUSD ? pairData.trackedReserveUSD : pairData.reserveUSD)
       )
 
       const weekVolume = formattedNum(
@@ -213,6 +215,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
                 maxCharacters={below600 ? 8 : 16}
                 adjustSize={true}
                 link={true}
+                style={{ color: '#5B5A99', fontWeight: '600', fontSize: '16px' }}
               />
             </CustomLink>
           </DataText>
@@ -271,10 +274,16 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         style={{ height: 'fit-content', padding: '0 1.125rem 1rem 1.125rem' }}
       >
         <Flex alignItems="center" justifyContent="flexStart">
-          <TYPE.main area="name">Name</TYPE.main>
+          <TYPE.main
+            area="name"
+            style={{
+              color: "#5B5A99BF", fontWeight: '600'
+            }}
+          >Name</TYPE.main>
         </Flex>
         <Flex alignItems="center" justifyContent="flexEnd">
           <ClickableText
+            color="#5B5A99BF"
             area="liq"
             onClick={(e) => {
               setSortedColumn(SORT_FIELD.LIQ)
@@ -286,6 +295,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         </Flex>
         <Flex alignItems="center">
           <ClickableText
+            color="#5B5A99BF"
             area="vol"
             onClick={(e) => {
               setSortedColumn(SORT_FIELD.VOL)
@@ -299,6 +309,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         {!below1080 && (
           <Flex alignItems="center" justifyContent="flexEnd">
             <ClickableText
+              color="#5B5A99BF"
               area="volWeek"
               onClick={(e) => {
                 setSortedColumn(SORT_FIELD.VOL_7DAYS)
@@ -312,6 +323,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         {!below1080 && (
           <Flex alignItems="center" justifyContent="flexEnd">
             <ClickableText
+              color="#5B5A99BF"
               area="fees"
               onClick={(e) => {
                 setSortedColumn(SORT_FIELD.FEES)
@@ -325,6 +337,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         {!below1080 && (
           <Flex alignItems="center" justifyContent="flexEnd">
             <ClickableText
+              color="#5B5A99BF"
               area="apy"
               onClick={(e) => {
                 setSortedColumn(SORT_FIELD.APY)
@@ -347,7 +360,7 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10, useTracked = fals
         >
           <Arrow faded={page === 1 ? true : false}>←</Arrow>
         </div>
-        <TYPE.body>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
+        <TYPE.body style={{ color: '#5B5A99' }}>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
         <div
           onClick={(e) => {
             setPage(page === maxPage ? page : page + 1)

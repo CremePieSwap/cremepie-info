@@ -90,7 +90,8 @@ const ClickableText = styled(Text)`
     opacity: 0.6;
   }
   user-select: none;
-  color: ${({ theme }) => theme.text1} !important;
+  color: #5B5A99BF;
+  font-weight: 600;
   @media screen and (max-width: 640px) {
     font-size: 0.85rem;
   }
@@ -99,8 +100,9 @@ const ClickableText = styled(Text)`
 const DataText = styled(Flex)`
   align-items: center;
   text-align: center;
-  color: ${({ theme }) => theme.text1} !important;
+  color: #5B5A99;
 
+  font-weight: 600;
   & > * {
     font-size: 14px;
   }
@@ -189,13 +191,14 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
                 maxCharacters={below600 ? 8 : 16}
                 adjustSize={true}
                 link={true}
+                style={{ color: '#5B5A99', fontWeight: '600', fontSize: '16px' }}
               />
             </CustomLink>
           </Row>
         </DataText>
         {!below680 && (
-          <DataText area="symbol" color="text" fontWeight="500">
-            <FormattedName text={item.symbol} maxCharacters={5} />
+          <DataText area="symbol" color="text" fontWeight="600">
+            <FormattedName text={item.symbol} maxCharacters={below600 ? 8 : 16} style={{ color: '#5B5A99' }} />
           </DataText>
         )}
         <DataText area="liq">{formattedNum(item.totalLiquidityUSD, true)}</DataText>
@@ -215,9 +218,8 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
       <DashGrid center={true} style={{ height: 'fit-content', padding: '0 1.125rem 1rem 1.125rem' }}>
         <Flex alignItems="center" justifyContent="flexStart">
           <ClickableText
-            color="text"
+            color="#5B5A99BF"
             area="name"
-            fontWeight="500"
             onClick={(e) => {
               setSortedColumn(SORT_FIELD.NAME)
               setSortDirection(sortedColumn !== SORT_FIELD.NAME ? true : !sortDirection)
@@ -242,6 +244,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
 
         <Flex alignItems="center">
           <ClickableText
+            color="#5B5A99BF"
             area="liq"
             onClick={(e) => {
               setSortedColumn(SORT_FIELD.LIQ)
@@ -253,6 +256,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
         </Flex>
         <Flex alignItems="center">
           <ClickableText
+            color="#5B5A99BF"
             area="vol"
             onClick={() => {
               setSortedColumn(useTracked ? SORT_FIELD.VOL_UT : SORT_FIELD.VOL)
@@ -268,6 +272,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
         {!below1080 && (
           <Flex alignItems="center">
             <ClickableText
+              color="#5B5A99BF"
               area="price"
               onClick={(e) => {
                 setSortedColumn(SORT_FIELD.PRICE)
@@ -281,6 +286,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
         {!below1080 && (
           <Flex alignItems="center">
             <ClickableText
+              color="#5B5A99BF"
               area="change"
               onClick={(e) => {
                 setSortedColumn(SORT_FIELD.CHANGE)
@@ -309,7 +315,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
         <div onClick={() => setPage(page === 1 ? page : page - 1)}>
           <Arrow faded={page === 1 ? true : false}>←</Arrow>
         </div>
-        <TYPE.body>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
+        <TYPE.body style={{ color: '#5B5A99' }}>{'Page ' + page + ' of ' + maxPage}</TYPE.body>
         <div onClick={() => setPage(page === maxPage ? page : page + 1)}>
           <Arrow faded={page === maxPage ? true : false}>→</Arrow>
         </div>
