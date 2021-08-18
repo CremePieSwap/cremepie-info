@@ -20,6 +20,7 @@ import { useTokenData, useTokenTransactions, useTokenPairs } from '../contexts/T
 import { TYPE, ThemedBackground } from '../Theme'
 import { transparentize } from 'polished'
 import { useColor } from '../hooks'
+import PageHeader from '../components/PageHeader'
 import CopyHelper from '../components/Copy'
 import { useMedia } from 'react-use'
 import { useDataForList } from '../contexts/PairData'
@@ -190,6 +191,7 @@ function TokenPage({ address, history }) {
 
   return (
     <PageWrapper>
+      <PageHeader active='tokens' />
       <ThemedBackground backgroundColor={transparentize(0.6, backgroundColor)} />
       <Warning
         type={'token'}

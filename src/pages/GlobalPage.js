@@ -9,8 +9,8 @@ import PairList from '../components/PairList'
 import TopTokenList from '../components/TokenList'
 import TxnList from '../components/TxnList'
 import GlobalChart from '../components/GlobalChart'
-import Search from '../components/Search'
 import GlobalStats from '../components/GlobalStats'
+import PageHeader from '../components/PageHeader'
 
 import { useGlobalData, useGlobalTransactions } from '../contexts/GlobalData'
 import { useAllPairData } from '../contexts/PairData'
@@ -19,12 +19,8 @@ import Panel from '../components/Panel'
 import { useAllTokenData } from '../contexts/TokenData'
 import { formattedNum, formattedPercent } from '../utils'
 import { TYPE, ThemedBackground } from '../Theme'
-import { transparentize } from 'polished'
-import { CustomLink, RouterURL } from '../components/Link'
 
 import { PageWrapper, ContentWrapper } from '../components'
-import CheckBox from '../components/Checkbox'
-import QuestionHelper from '../components/QuestionHelper'
 
 const ListOptions = styled(AutoRow)`
   height: 40px;
@@ -69,16 +65,7 @@ function GlobalPage() {
 
   return (
     <PageWrapper>
-      <MenuBlock>
-        <div className="container">
-          <RedirectBlock>
-            <RouterURL to={'/home'} className='item active'>Overview</RouterURL>
-            <RouterURL to={'/pairs'} className='item'>Pairs</RouterURL>
-            <RouterURL to={'/tokens'} className='item'>Tokens</RouterURL>
-          </RedirectBlock>
-          <Search />
-        </div>
-      </MenuBlock>
+      <PageHeader active='home' />
       <ContentWrapper>
         <div>
           <AutoColumn gap="16px" style={{ paddingBottom: below800 ? '0' : '24px' }}>
@@ -173,62 +160,3 @@ function GlobalPage() {
 }
 
 export default withRouter(GlobalPage)
-
-const MenuBlock = styled.div`
-display: grid;
--webkit-box-pack: start;
--webkit-justify-content: start;
--ms-flex-pack: start;
-justify-content: space-between;
--webkit-align-items: start;
--webkit-box-align: start;
--ms-flex-align: start;
-align-items: start;
-grid-template-columns: 1fr;
-grid-gap: 24px;
-// max-width: 1440px;
-width: 100%;
-margin: 0 auto;
-padding: 0 2rem;
-box-sizing: border-box;
-background: linear-gradient(
-  247.99deg
-  , #50E3C2 0%, #6F6C99 98.46%);
-margin-bottom: 45px;
-.container {
-    height: 84px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media screen and (max-width: 768px) {
-      display: block;
-      margin: auto;
-    }
-  }
-}`
-const RedirectBlock = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #FFF7E2;
-  border: 1px solid #CCCCCC;
-  box-sizing: border-box;
-  border-radius: 43px;
-  @media screen and (max-width: 768px) {
-    margin-top: 10px;
-  }
-  .item {
-    padding: 0 20px;
-    font-size: 14px;
-    font-weight: 900;
-    line-height: 23px;
-    font-family: SFPro900;
-    color: #50E3C2;
-    cursor: pointer;
-    &.active {
-      color: #5B5A99;
-      background: #50E3C2;
-      border-radius: 43px;
-    }
-  }
-}`

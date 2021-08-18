@@ -30,6 +30,7 @@ import DoubleTokenLogo from '../components/DoubleLogo'
 import TokenLogo from '../components/TokenLogo'
 import { Hover } from '../components'
 import { useEthPrice } from '../contexts/GlobalData'
+import PageHeader from '../components/PageHeader'
 import Warning from '../components/Warning'
 import { usePathDismissed, useSavedPairs } from '../contexts/LocalStorage'
 
@@ -214,6 +215,7 @@ function PairPage({ pairAddress, history }) {
 
   return (
     <PageWrapper>
+      <PageHeader active='pairs' />
       <ThemedBackground backgroundColor={transparentize(0.6, backgroundColor)} />
       <span />
       <Warning
