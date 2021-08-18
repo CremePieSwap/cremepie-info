@@ -45,11 +45,21 @@ export const CustomLink = styled(RouterLink)`
 `
 
 export const BasicLink = styled(RouterLink)`
-  text-decoration: none;
-  color: inherit;
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-    underline: none;
-  }
+  // text-decoration: none;
+  // color: inherit;
+  // &:hover {
+  //   cursor: pointer;
+  //   text-decoration: none;
+  //   underline: none;
+  // }
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 48px;
+  padding: 0px 16px;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(110, 163, 170);
+  flex-shrink: 0;
 `

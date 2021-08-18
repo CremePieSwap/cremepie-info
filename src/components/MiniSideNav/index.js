@@ -13,9 +13,6 @@ import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
 
-import { useEthPrice } from '../../contexts/GlobalData'
-import { formattedNum } from '../../utils'
-
 import Home from '../../assets/svg/home-icon.svg'
 import Trade from '../../assets/svg/trade-icon.svg'
 import Docs from '../../assets/svg/docs-icon.svg'
@@ -30,14 +27,14 @@ import Twitter from '../../assets/svg/twitter.svg'
 
 
 const Wrapper = styled.div`
-  height: ${({ isMobile }) => (isMobile ? '100%' : 'calc(100vh - 64px)')};
+  height: ${({ isMobile }) => (isMobile ? 'initial' : 'calc(100vh - 52px)')};
   background-color: ${({ theme }) => theme.white};
   color: ${({ theme }) => theme.text1};
   position: fixed;
   padding-top: 16px;
   z-index: 9999;
   box-sizing: border-box;
-  width: 240px;
+  width: 54px;
 `
 
 const Option = styled.div`
@@ -48,16 +45,6 @@ const Option = styled.div`
   display: flex;
   :hover {
     opacity: 1;
-  }
-  span {
-    color: rgb(110, 163, 170);
-    transition: color 0.4s ease 0s;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    font-weight: 600;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
   }
 `
 
@@ -113,7 +100,7 @@ const PollingDot = styled.div`
   background-color: ${({ theme }) => theme.green1};
 `
 
-function SideNav({ history }) {
+function MiniSideNav({ history }) {
   const below1080 = useMedia('(max-width: 1080px)')
 
   const below1180 = useMedia('(max-width: 1180px)')
@@ -122,64 +109,63 @@ function SideNav({ history }) {
 
   const [isDark, toggleDarkMode] = useDarkModeManager()
 
-  const [ethPrice] = useEthPrice()
-  const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : '-'
-
   return (
     <Wrapper isMobile={below1080}>
-      <DesktopWrapper>
-        <AutoColumn gap="0">
-          {/* <Title /> */}
+      {!below1080 ? (
+        <DesktopWrapper>
           <AutoColumn gap="0">
-            <StyledAbsoluteLink
-              href="https://cremepieswap.finance/"
-            >
-              <Option>
-                <img src={Home} alt="home" style={{ marginRight: 15 }} />
-                <span>Home</span>
-              </Option>
-            </StyledAbsoluteLink>
-            <StyledAbsoluteLink
-              href="https://swap.cremepieswap.finance/"
-            >
-              <Option>
-                <img src={Trade} alt="trade" style={{ marginRight: 15 }} />
-                <span>Trade</span>
-              </Option>
-            </StyledAbsoluteLink>
-            <StyledAbsoluteLink
-              href="https://cremepieswap.finance/farms"
-            >
-              <Option>
-                <img src={Farm} alt="farm" style={{ marginRight: 15 }} />
-                <span>Farms</span>
-              </Option>
-            </StyledAbsoluteLink>
-            <StyledAbsoluteLink
-              href="https://cremepieswap.finance/pools"
-            >
-              <Option>
-                <img src={Pools} alt="pools" style={{ marginRight: 15 }} />
-                <span>Pools</span>
-              </Option>
-            </StyledAbsoluteLink>
-            <StyledAbsoluteLink
-              href="https://lottery.cremepieswap.finance/"
-            >
-              <Option>
-                <img src={Lottery} alt="lottery" style={{ marginRight: 15 }} />
-                <span>Lottery</span>
-              </Option>
-            </StyledAbsoluteLink>
-            <StyledAbsoluteLink
-              href="https://docs.cremepieswap.finance/"
-            >
-              <Option>
-                <img src={Docs} alt="docs" style={{ marginRight: 15 }} />
-                <span>Docs</span>
-              </Option>
-            </StyledAbsoluteLink>
-            {/* <BasicLink to="/tokens">
+            {/* <Title /> */}
+            {!below1080 && (
+              <AutoColumn gap="0">
+                <StyledAbsoluteLink
+                  href="https://cremepieswap.finance/"
+                >
+                  <Option>
+                    <img src={Home} alt="home" style={{ marginRight: 15 }} />
+                    <span>Home</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                <StyledAbsoluteLink
+                  href="https://swap.cremepieswap.finance/"
+                >
+                  <Option>
+                    <img src={Trade} alt="trade" style={{ marginRight: 15 }} />
+                    <span>Trade</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                <StyledAbsoluteLink
+                  href="https://cremepieswap.finance/farms"
+                >
+                  <Option>
+                    <img src={Farm} alt="farm" style={{ marginRight: 15 }} />
+                    <span>Farms</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                <StyledAbsoluteLink
+                  href="https://cremepieswap.finance/pools"
+                >
+                  <Option>
+                    <img src={Pools} alt="pools" style={{ marginRight: 15 }} />
+                    <span>Pools</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                <StyledAbsoluteLink
+                  href="https://lottery.cremepieswap.finance/"
+                >
+                  <Option>
+                    <img src={Lottery} alt="lottery" style={{ marginRight: 15 }} />
+                    <span>Lottery</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                <StyledAbsoluteLink
+                  href="https://docs.cremepieswap.finance/"
+                >
+                  <Option>
+                    <img src={Docs} alt="docs" style={{ marginRight: 15 }} />
+                    <span>Docs</span>
+                  </Option>
+                </StyledAbsoluteLink>
+                {/* <BasicLink to="/tokens">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'tokens' ||
@@ -216,9 +202,10 @@ function SideNav({ history }) {
                     Accounts
                   </Option>
                 </BasicLink> */}
+              </AutoColumn>
+            )}
           </AutoColumn>
-        </AutoColumn>
-        {/* <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
+          {/* <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
               <Link href="https://uniswap.org" target="_blank">
                 Uniswap.org
@@ -246,7 +233,7 @@ function SideNav({ history }) {
             </HeaderText>
             <Toggle isActive={isDark} toggle={toggleDarkMode} />
           </AutoColumn> */}
-        {/* {!below1180 && (
+          {/* {!below1180 && (
             <Polling style={{ marginLeft: '.5rem' }}>
               <PollingDot />
               <a href="/" style={{ color: 'white' }}>
@@ -256,21 +243,17 @@ function SideNav({ history }) {
               </a>
             </Polling>
           )} */}
-        <MenuFooter>
-          <div className='price'>CPIE {formattedEthPrice}</div>
-          <div className='social-icons'>
-            <div><a href="https://www.facebook.com/CremePieSwap"><img src={Facebook} alt="facebook" /></a></div>
-            <div><a href="https://twitter.com/CremePieSwap"><img src={Twitter} alt="Twitter" /></a></div>
-            <div><a href="https://www.reddit.com/r/CremePieSwapOfficial"><img src={Reddit} alt="Reddit" /></a></div>
-            <div><a href="https://t.me/cremepieswapofficial"><img src={Telegram} alt="Telegram" /></a></div>
-          </div>
-        </MenuFooter>
-      </DesktopWrapper>
+        </DesktopWrapper>
+      ) : (
+        <MobileWrapper>
+          <Title />
+        </MobileWrapper>
+      )}
     </Wrapper>
   )
 }
 
-export default withRouter(SideNav)
+export default withRouter(MiniSideNav)
 
 const StyledAbsoluteLink = styled.a`
   display: flex;
@@ -292,24 +275,5 @@ const StyledAbsoluteLink = styled.a`
       display: none;
       margin-left: 0;
     }
-  }
-`
-const MenuFooter = styled.div`
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  width: 240px;
-  padding: 20px 0;
-  .price {
-    color: rgb(110, 163, 170);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.5;
-  }
-  .social-icons {
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
   }
 `

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ApolloProvider } from 'react-apollo'
+import { useMedia } from 'react-use'
 import { client } from './apollo/client'
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
 import GlobalPage from './pages/GlobalPage'
@@ -14,6 +15,8 @@ import AllPairsPage from './pages/AllPairsPage'
 import PinnedData from './components/PinnedData'
 
 import SideNav from './components/SideNav'
+import MiniSideNav from './components/MiniSideNav'
+import Header from './components/Header'
 import AccountLookup from './pages/AccountLookup'
 import LocalLoader from './components/LocalLoader'
 import { useLatestBlocks } from './contexts/Application'
@@ -25,40 +28,14 @@ const AppWrapper = styled.div`
   width: 100%;
 `
 const ContentWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 240px 1fr;
-
-  @media screen and (max-width: 1400px) {
-    grid-template-columns: 240px 1fr;
-  }
-
-  @media screen and (max-width: 1080px) {
-    grid-template-columns: 1fr;
-    max-width: 100vw;
-    overflow: hidden;
-    grid-gap: 0;
-  }
+  margin-top: 64px;
+  display: block;
 `
-
-const Right = styled.div`
-  position: fixed;
-  right: 0;
-  bottom: 0rem;
-  z-index: 99;
-  width: ${({ open }) => (open ? '220px' : '64px')};
-  height: ${({ open }) => (open ? 'fit-content' : '64px')};
-  overflow: auto;
-  background-color: ${({ theme }) => theme.bg1};
-  @media screen and (max-width: 1400px) {
-    display: none;
-  }
-`
-
 const Center = styled.div`
   height: 100%;
   z-index: 9999;
   transition: width 0.25s ease;
-  background-color: ${({ theme }) => theme.onlyLight};
+  background-color: #F5F5FA;
 `
 
 const WarningWrapper = styled.div`
@@ -75,16 +52,22 @@ const WarningBanner = styled.div`
   text-align: center;
   font-weight: 500;
 `
-
 /**
  * Wrap the component with the header and sidebar pinned tab
  */
 const LayoutWrapper = ({ children, savedOpen, setSavedOpen }) => {
+  const isMobile = useMedia('(max-width: 768px)')
+  const [showMenu, set_show_menu] = useState(isMobile ? false : true)
   return (
     <>
-      <ContentWrapper open={savedOpen}>
-        <SideNav />
-        <Center id="center">{children}</Center>
+      <Header showMenu={showMenu} set_show_menu={set_show_menu} />
+      <ContentWrapper open={savedOpen} className={`${showMenu ? 'show' : 'hide'}`}>
+        {showMenu ?
+          <SideNav /> :
+          !isMobile ?
+            <MiniSideNav /> : null
+        }
+        <Center id="center" style={{ marginLeft: showMenu ? '240px' : isMobile ? '0' : '54px' }}>{children}</Center>
       </ContentWrapper>
     </>
   )
@@ -105,13 +88,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AppWrapper>
-        {showWarning && (
+        {/* {showWarning && (
           <WarningWrapper>
             <WarningBanner>
               {`Warning: The data on this site has only synced to Polygon block ${latestBlock} (out of ${headBlock}). Please check back soon.`}
             </WarningBanner>
           </WarningWrapper>
-        )}
+        )} */}
         {globalData &&
           Object.keys(globalData).length > 0 &&
           globalChartData &&
