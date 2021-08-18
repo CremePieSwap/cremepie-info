@@ -63,7 +63,7 @@ const TradingViewChart = ({
   const topScale = type === CHART_TYPES.AREA ? 0.32 : 0.2
 
   const [darkMode] = useDarkModeManager()
-  const textColor = darkMode ? 'white' : 'black'
+  const textColor = darkMode ? '#5B5A99' : '#5B5A99'
   const previousTheme = usePrevious(darkMode)
 
   // reset the chart if them switches
@@ -100,11 +100,11 @@ const TradingViewChart = ({
         },
         grid: {
           horzLines: {
-            color: 'rgba(197, 203, 206, 0.5)',
+            color: '#ECE9F1',
             visible: false,
           },
           vertLines: {
-            color: 'rgba(197, 203, 206, 0.5)',
+            color: '#ECE9F1',
             visible: false,
           },
         },
@@ -117,7 +117,7 @@ const TradingViewChart = ({
             visible: true,
             style: 0,
             width: 2,
-            color: 'rgba(32, 38, 46, 0.1)',
+            color: '#ECE9F1',
             labelVisible: false,
           },
         },
@@ -129,23 +129,23 @@ const TradingViewChart = ({
       var series =
         type === CHART_TYPES.BAR
           ? chart.addHistogramSeries({
-              color: '#ff007a',
-              priceFormat: {
-                type: 'volume',
-              },
-              scaleMargins: {
-                top: 0.32,
-                bottom: 0,
-              },
-              lineColor: '#ff007a',
-              lineWidth: 3,
-            })
+            color: '#50E3C2',
+            priceFormat: {
+              type: 'volume',
+            },
+            scaleMargins: {
+              top: 0.32,
+              bottom: 0,
+            },
+            lineColor: '#50E3C2',
+            lineWidth: 3,
+          })
           : chart.addAreaSeries({
-              topColor: '#ff007a',
-              bottomColor: 'rgba(255, 0, 122, 0)',
-              lineColor: '#ff007a',
-              lineWidth: 3,
-            })
+            topColor: '#5B5A99',
+            bottomColor: 'rgba(255, 0, 122, 0)',
+            lineColor: '#50E3C2',
+            lineWidth: 3,
+          })
 
       series.setData(formattedData)
       var toolTip = document.createElement('div')
@@ -157,6 +157,7 @@ const TradingViewChart = ({
       toolTip.style.left = -4 + 'px'
       toolTip.style.top = '-' + 8 + 'px'
       toolTip.style.backgroundColor = 'transparent'
+      toolTip.style.color = '#5B5A99'
 
       // format numbers
       let percentChange = baseChange?.toFixed(2)
@@ -166,8 +167,7 @@ const TradingViewChart = ({
       // get the title of the chart
       function setLastBarText() {
         toolTip.innerHTML =
-          `<div style="font-size: 16px; margin: 4px 0px; color: ${textColor};">${title} ${
-            type === CHART_TYPES.BAR && !useWeekly ? '(24hr)' : ''
+          `<div style="font-size: 16px; margin: 4px 0px; color: ${textColor};">${title} ${type === CHART_TYPES.BAR && !useWeekly ? '(24hr)' : ''
           }</div>` +
           `<div style="font-size: 22px; margin: 4px 0px; color:${textColor}" >` +
           formattedNum(base ?? 0, true) +
@@ -190,12 +190,12 @@ const TradingViewChart = ({
         } else {
           let dateStr = useWeekly
             ? dayjs(param.time.year + '-' + param.time.month + '-' + param.time.day)
-                .startOf('week')
-                .format('MMMM D, YYYY') +
-              '-' +
-              dayjs(param.time.year + '-' + param.time.month + '-' + param.time.day)
-                .endOf('week')
-                .format('MMMM D, YYYY')
+              .startOf('week')
+              .format('MMMM D, YYYY') +
+            '-' +
+            dayjs(param.time.year + '-' + param.time.month + '-' + param.time.day)
+              .endOf('week')
+              .format('MMMM D, YYYY')
             : dayjs(param.time.year + '-' + param.time.month + '-' + param.time.day).format('MMMM D, YYYY')
           var price = param.seriesPrices.get(series)
 

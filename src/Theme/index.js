@@ -46,7 +46,7 @@ const theme = (darkMode, color) => ({
 
   //specialty colors
   modalBG: darkMode ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.6)',
-  advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.4)',
+  advancedBG: darkMode ? '#FFF' : '#FFF',
   onlyLight: darkMode ? '#22242a' : 'transparent',
   divider: darkMode ? 'rgba(43, 43, 43, 0.435)' : 'rgba(43, 43, 43, 0.035)',
 
@@ -84,7 +84,7 @@ const TextWrapper = styled(Text)`
 
 export const TYPE = {
   main(props) {
-    return <TextWrapper fontWeight={500} fontSize={14} color={'text1'} {...props} />
+    return <TextWrapper fontWeight={500} fontSize={14} color={'#5B5A99'} {...props} />
   },
 
   body(props) {
@@ -100,7 +100,7 @@ export const TYPE = {
   },
 
   largeHeader(props) {
-    return <TextWrapper fontWeight={500} color={'text1'} fontSize={24} {...props} />
+    return <TextWrapper fontFamily={'SFPro900'} fontWeight={900} color={'#5B5A99'} fontSize={24} {...props} />
   },
 
   light(props) {

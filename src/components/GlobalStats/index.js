@@ -15,7 +15,7 @@ const Header = styled.div`
 `
 
 const Medium = styled.span`
-  font-weight: 500;
+  font-weight: 600;
 `
 
 export default function GlobalStats() {
@@ -34,7 +34,7 @@ export default function GlobalStats() {
 
   return (
     <Header>
-      <RowBetween style={{ padding: below816 ? '0.5rem' : '.5rem' }}>
+      <RowBetween style={{ padding: below816 ? '0.5rem' : '0' }}>
         <RowFixed>
           {!below400 && (
             <TYPE.main
@@ -48,7 +48,7 @@ export default function GlobalStats() {
               style={{ position: 'relative' }}
             >
               CPIE Price: <Medium>{formattedEthPrice}</Medium>
-              {showPriceCard && <UniPrice />}
+              {/* {showPriceCard && <UniPrice />} */}
             </TYPE.main>
           )}
 

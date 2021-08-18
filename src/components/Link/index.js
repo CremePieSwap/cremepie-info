@@ -44,6 +44,8 @@ export const CustomLink = styled(RouterLink)`
   }
 `
 
+export const RouterURL = styled(RouterLink)``
+
 export const BasicLink = styled(RouterLink)`
   // text-decoration: none;
   // color: inherit;

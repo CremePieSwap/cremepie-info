@@ -56,6 +56,12 @@ const Wrapper = styled.div`
       ? '0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) '
       : 'none'};
   }
+
+  background: #89DBC4;
+  box-shadow: inset 1px 1px 1px rgba(35, 35, 35, 0.3);
+  border-radius: 12px;
+  height: 32px;
+  margin-top: 8px;
 `
 const Input = styled.input`
   position: relative;
@@ -66,11 +72,13 @@ const Input = styled.input`
   border: none;
   outline: none;
   width: 100%;
-  color: ${({ theme }) => theme.text1};
-  font-size: ${({ large }) => (large ? '20px' : '14px')};
+  color: ${({ theme }) => theme.white};
+  font-size: 16px;
+  font-family: SFPro500;
+  font-weight: 600;
 
   ::placeholder {
-    color: ${({ theme }) => theme.text3};
+    color: ${({ theme }) => theme.white};
     font-size: 16px;
   }
 
@@ -88,7 +96,7 @@ const SearchIconLarge = styled(SearchIcon)`
   position: absolute;
   right: 10px;
   pointer-events: none;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.white};
 `
 
 const CloseIcon = styled(X)`
@@ -97,7 +105,7 @@ const CloseIcon = styled(X)`
   margin-right: 0.5rem;
   position: absolute;
   right: 10px;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.white};
   :hover {
     cursor: pointer;
   }
@@ -113,7 +121,7 @@ const Menu = styled.div`
   overflow: auto;
   left: 0;
   padding-bottom: 20px;
-  background: ${({ theme }) => theme.bg6};
+  background: ${({ theme }) => theme.white};
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
@@ -129,7 +137,7 @@ const MenuItem = styled(Row)`
   }
   :hover {
     cursor: pointer;
-    background-color: ${({ theme }) => theme.bg2};
+    background-color: #F5F5FA;
   }
 `
 
@@ -433,7 +441,7 @@ export const Search = ({ small = false }) => {
                   ? 'Search...'
                   : below700
                     ? 'Search pairs and tokens...'
-                    : 'Search CremePieswap pairs and tokens...'
+                    : 'Search pairs and tokens...'
           }
           value={value}
           onChange={(e) => {
