@@ -142,7 +142,7 @@ export const ContentWrapper = styled.div`
   box-sizing: border-box;
   @media screen and (max-width: 1180px) {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 20px 1rem 0;
   }
 `
 
@@ -160,7 +160,7 @@ export const ContentWrapperLarge = styled.div`
 
   @media screen and (max-width: 1282px) {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 20px 1rem 0;
   }
 `
 
@@ -178,7 +178,7 @@ export const FullWrapper = styled.div`
 
   @media screen and (max-width: 1180px) {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 20px 1rem 0;
   }
 `
 

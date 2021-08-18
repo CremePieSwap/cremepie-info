@@ -60,20 +60,20 @@ const ContentWrapper = styled.div`
 `
 
 export const ButtonLight = styled(Base)`
-  background-color: ${({ color, theme }) => (color ? transparentize(0.9, color) : transparentize(0.9, theme.primary1))};
-  color: ${({ color, theme }) => (color ? darken(0.1, color) : theme.primary1)};
+  background-color: #fff;
+  color: #50E3C2;
 
   min-width: fit-content;
   border-radius: 12px;
   white-space: nowrap;
 
   a {
-    color: ${({ color, theme }) => (color ? darken(0.1, color) : theme.primary1)};
+    color: #50E3C2;
   }
 
   :hover {
     background-color: ${({ color, theme }) =>
-      color ? transparentize(0.8, color) : transparentize(0.8, theme.primary1)};
+    color ? transparentize(0.8, '#fff') : transparentize(0.8, '#fff')};
   }
 `
 
@@ -97,14 +97,14 @@ export function ButtonDropdown({ disabled = false, children, open, ...rest }) {
 }
 
 export const ButtonDark = styled(Base)`
-  background-color: ${({ color, theme }) => (color ? color : theme.primary1)};
-  color: white;
+  background-color: #50E3C2;
+  color: #5B5A99;
   width: fit-content;
   border-radius: 12px;
   white-space: nowrap;
 
   :hover {
-    background-color: ${({ color, theme }) => (color ? darken(0.1, color) : darken(0.1, theme.primary1))};
+    background-color: ${({ color, theme }) => (color ? darken(0.1, '#50E3C2') : darken(0.1, '#50E3C2'))};
   }
 `
 

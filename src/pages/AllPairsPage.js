@@ -41,10 +41,6 @@ function AllPairsPage() {
         <RowBetween>
           <TYPE.largeHeader>Top Pairs</TYPE.largeHeader>
         </RowBetween>
-        <AutoRow gap="4px">
-          <CheckBox checked={useTracked} setChecked={() => setUseTracked(!useTracked)} text={'Hide untracked pairs'} />
-          <QuestionHelper text="USD amounts may be inaccurate in low liquiidty pairs or pairs without ETH or stablecoins." />
-        </AutoRow>
         <Panel style={{ padding: below800 && '1rem 0 0 0 ' }}>
           <PairList pairs={allPairs} disbaleLinks={true} maxItems={50} useTracked={useTracked} />
         </Panel>
@@ -75,12 +71,16 @@ box-sizing: border-box;
 background: linear-gradient(
   247.99deg
   , #50E3C2 0%, #6F6C99 98.46%);
-  margin-bottom: 45px;
+margin-bottom: 45px;
 .container {
     height: 84px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      display: block;
+      margin: auto;
+    }
   }
 }`
 const RedirectBlock = styled.div`
@@ -91,6 +91,9 @@ const RedirectBlock = styled.div`
   border: 1px solid #CCCCCC;
   box-sizing: border-box;
   border-radius: 43px;
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
   .item {
     padding: 0 20px;
     font-size: 14px;

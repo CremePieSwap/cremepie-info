@@ -49,13 +49,6 @@ const Wrapper = styled.div`
     !open && !small
       ? '0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) '
       : 'none'};
-  @media screen and (max-width: 500px) {
-    background: ${({ theme }) => theme.bg6};
-    box-shadow: ${({ open }) =>
-    !open
-      ? '0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) '
-      : 'none'};
-  }
 
   background: #89DBC4;
   box-shadow: inset 1px 1px 1px rgba(35, 35, 35, 0.3);

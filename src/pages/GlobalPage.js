@@ -200,6 +200,10 @@ margin-bottom: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      display: block;
+      margin: auto;
+    }
   }
 }`
 const RedirectBlock = styled.div`
@@ -210,6 +214,9 @@ const RedirectBlock = styled.div`
   border: 1px solid #CCCCCC;
   box-sizing: border-box;
   border-radius: 43px;
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
   .item {
     padding: 0 20px;
     font-size: 14px;

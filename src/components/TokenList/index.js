@@ -191,7 +191,7 @@ function TopTokenList({ tokens, itemMax = 10, useTracked = false }) {
                 maxCharacters={below600 ? 8 : 16}
                 adjustSize={true}
                 link={true}
-                style={{ color: '#5B5A99', fontWeight: '600', fontSize: '16px' }}
+                style={{ color: '#5B5A99', fontWeight: '600', fontSize: below600 ? '14px' : '16px' }}
               />
             </CustomLink>
           </Row>

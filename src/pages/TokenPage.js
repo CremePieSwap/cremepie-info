@@ -198,24 +198,6 @@ function TokenPage({ address, history }) {
         address={address}
       />
       <ContentWrapper>
-        <RowBetween style={{ flexWrap: 'wrap', alingItems: 'start' }}>
-          <AutoRow align="flex-end" style={{ width: 'fit-content' }}>
-            <TYPE.body>
-              <BasicLink to="/tokens">{'Tokens '}</BasicLink>→ {symbol}
-            </TYPE.body>
-            <Link
-              style={{ width: 'fit-content' }}
-              color={backgroundColor}
-              external
-              href={'https://polygonscan.com/address/' + address}
-            >
-              <Text style={{ marginLeft: '.15rem' }} fontSize={'14px'} fontWeight={400}>
-                ({address.slice(0, 8) + '...' + address.slice(36, 42)})
-              </Text>
-            </Link>
-          </AutoRow>
-          {!below600 && <Search small={true} />}
-        </RowBetween>
         <WarningGrouping disabled={!dismissed && listedTokens && !listedTokens.includes(address)}>
           <DashboardWrapper style={{ marginTop: below1080 ? '0' : '1rem' }}>
             <RowBetween
@@ -228,7 +210,7 @@ function TokenPage({ address, history }) {
               <RowFixed style={{ flexWrap: 'wrap' }}>
                 <RowFixed style={{ alignItems: 'baseline' }}>
                   <TokenLogo address={address} size="32px" style={{ alignSelf: 'center' }} />
-                  <TYPE.main fontSize={below1080 ? '1.5rem' : '2rem'} fontWeight={500} style={{ margin: '0 1rem' }}>
+                  <TYPE.main fontSize={below1080 ? '1.5rem' : '2rem'} fontWeight={600} style={{ margin: '0 1rem' }}>
                     <RowFixed gap="6px">
                       <FormattedName text={name ? name + ' ' : ''} maxCharacters={16} style={{ marginRight: '6px' }} />{' '}
                       {formattedSymbol ? `(${formattedSymbol})` : ''}
@@ -384,7 +366,7 @@ function TokenPage({ address, history }) {
               <TYPE.main fontSize={'1.125rem'}>Transactions</TYPE.main> <div />
             </RowBetween>
             <Panel rounded>
-              {transactions ? <TxnList color={backgroundColor} transactions={transactions} /> : <Loader />}
+              {transactions ? <TxnList transactions={transactions} color='#5B5A99' /> : <Loader />}
             </Panel>
             <>
               <RowBetween style={{ marginTop: '3rem' }}>
@@ -400,20 +382,20 @@ function TokenPage({ address, history }) {
                 <TokenDetailsLayout>
                   <Column>
                     <TYPE.main>Symbol</TYPE.main>
-                    <Text style={{ marginTop: '.5rem' }} fontSize={24} fontWeight="500">
+                    <Text style={{ marginTop: '.5rem' }} fontSize={16} fontWeight="500">
                       <FormattedName text={symbol} maxCharacters={12} />
                     </Text>
                   </Column>
                   <Column>
                     <TYPE.main>Name</TYPE.main>
-                    <TYPE.main style={{ marginTop: '.5rem' }} fontSize={24} fontWeight="500">
+                    <TYPE.main style={{ marginTop: '.5rem' }} fontSize={16} fontWeight="500">
                       <FormattedName text={name} maxCharacters={16} />
                     </TYPE.main>
                   </Column>
                   <Column>
                     <TYPE.main>Address</TYPE.main>
                     <AutoRow align="flex-end">
-                      <TYPE.main style={{ marginTop: '.5rem' }} fontSize={24} fontWeight="500">
+                      <TYPE.main style={{ marginTop: '.5rem' }} fontSize={16} fontWeight="500">
                         {address.slice(0, 8) + '...' + address.slice(36, 42)}
                       </TYPE.main>
                       <CopyHelper toCopy={address} />
