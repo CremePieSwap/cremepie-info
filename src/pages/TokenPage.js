@@ -342,14 +342,14 @@ function TokenPage({ address, history }) {
 
             <RowBetween style={{ marginTop: '3rem' }}>
               <TYPE.main fontSize={'1.125rem'}>Top Pairs</TYPE.main>
-              <AutoRow gap="4px" style={{ width: 'fit-content' }}>
+              {/* <AutoRow gap="4px" style={{ width: 'fit-content' }}>
                 <Checkbox
                   checked={useTracked}
                   setChecked={() => setUseTracked(!useTracked)}
                   text={'Hide untracked pairs'}
                 />
                 <QuestionHelper text="USD amounts may be inaccurate in low liquiidty pairs or pairs without ETH or stablecoins." />
-              </AutoRow>
+              </AutoRow> */}
             </RowBetween>
             <Panel
               rounded
