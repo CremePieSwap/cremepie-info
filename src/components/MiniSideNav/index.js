@@ -47,6 +47,13 @@ const Option = styled.div`
   :hover {
     opacity: 1;
   }
+  .active {
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+    width: 20px;
+    margin-top: -5px;
+  }
 `
 
 const DesktopWrapper = styled.div`
@@ -170,6 +177,7 @@ function MiniSideNav({ history }) {
                   href="https://info.cremepieswap.finance/"
                 >
                   <Option>
+                    <img className='active' src={Active} alt="active" />
                     <img src={Info} alt="info" style={{ marginRight: 15 }} />
                     <span>Info</span>
                   </Option>
