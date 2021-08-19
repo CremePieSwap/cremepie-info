@@ -60,6 +60,13 @@ const Option = styled.div`
     display: flex;
     align-items: center;
   }
+  .active {
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+    width: 20px;
+    margin-top: -5px;
+  }
 `
 
 const DesktopWrapper = styled.div`
@@ -184,6 +191,7 @@ function SideNav({ history }) {
               href="https://info.cremepieswap.finance/"
             >
               <Option>
+                <img className='active' src={Active} alt="active" />
                 <img src={Info} alt="info" style={{ marginRight: 15 }} />
                 <span>Info</span>
               </Option>
