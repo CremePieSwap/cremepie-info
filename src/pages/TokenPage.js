@@ -200,7 +200,7 @@ function TokenPage({ address, history }) {
         address={address}
       />
       <ContentWrapper>
-        <WarningGrouping disabled={!dismissed && listedTokens && !listedTokens.includes(address)}>
+        <WarningGrouping disabled={false}>
           <DashboardWrapper style={{ marginTop: below1080 ? '0' : '1rem' }}>
             <RowBetween
               style={{

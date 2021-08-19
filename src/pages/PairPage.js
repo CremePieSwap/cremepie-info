@@ -226,9 +226,7 @@ function PairPage({ pairAddress, history }) {
       />
       <ContentWrapperLarge>
         <WarningGrouping
-          disabled={
-            !dismissed && listedTokens && !(listedTokens.includes(token0?.id) && listedTokens.includes(token1?.id))
-          }
+          disabled={false}
         >
           <DashboardWrapper style={{ marginTop: below1080 ? '0' : '1rem' }}>
             <AutoColumn gap="40px" style={{ marginBottom: '1.5rem' }}>
