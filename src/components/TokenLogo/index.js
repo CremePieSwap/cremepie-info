@@ -71,9 +71,7 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
-    address
-  )}/logo.png`
+  const path = `https://raw.githubusercontent.com/CremePieSwap/cremepie-token-list/main/images/${isAddress(address)}.png`
 
   return (
     <Inline>
