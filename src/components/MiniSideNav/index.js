@@ -167,7 +167,7 @@ function MiniSideNav({ history }) {
                   </Option>
                 </StyledAbsoluteLink>
                 <StyledAbsoluteLink
-                  href="https://cremepieswap.info/"
+                  href="https://info.cremepieswap.finance/"
                 >
                   <Option>
                     <img src={Info} alt="info" style={{ marginRight: 15 }} />
