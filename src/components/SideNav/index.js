@@ -140,7 +140,7 @@ function SideNav({ history }) {
           {/* <Title /> */}
           <AutoColumn gap="0">
             <StyledAbsoluteLink
-              href="https://cremepieswap.finance/"
+              href="https://cremepieswapfinance.com/"
             >
               <Option>
                 <img src={Home} alt="home" style={{ marginRight: 15 }} />
@@ -148,7 +148,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://swap.cremepieswap.finance/"
+              href="https://swap.cremepieswapfinance.com/"
             >
               <Option>
                 <img src={Trade} alt="trade" style={{ marginRight: 15 }} />
@@ -156,7 +156,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://cremepieswap.finance/farms"
+              href="https://cremepieswapfinance.com/farms"
             >
               <Option>
                 <img src={Farm} alt="farm" style={{ marginRight: 15 }} />
@@ -164,7 +164,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://cremepieswap.finance/pools"
+              href="https://cremepieswapfinance.com/pools"
             >
               <Option>
                 <img src={Pools} alt="pools" style={{ marginRight: 15 }} />
@@ -172,7 +172,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://lottery.cremepieswap.finance/"
+              href="https://lottery.cremepieswapfinance.com/"
             >
               <Option>
                 <img src={Lottery} alt="lottery" style={{ marginRight: 15 }} />
@@ -180,7 +180,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://docs.cremepieswap.finance/"
+              href="https://docs.cremepieswapfinance.com/"
             >
               <Option>
                 <img src={Docs} alt="docs" style={{ marginRight: 15 }} />
@@ -188,7 +188,7 @@ function SideNav({ history }) {
               </Option>
             </StyledAbsoluteLink>
             <StyledAbsoluteLink
-              href="https://info.cremepieswap.finance/"
+              href="https://info.cremepieswapfinance.com/"
             >
               <Option>
                 <img className='active' src={Active} alt="active" />
