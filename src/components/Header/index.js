@@ -56,7 +56,7 @@ const Header = (props) => {
             alt="menu"
           />
         </MenuIcon>
-        <Title href="https://cremepieswap.finance/">
+        <Title href="https://cremepieswapfinance.com/">
           <UniIcon>
             <img width={'160px'} src={Logo} alt="logo" />
           </UniIcon>
